@@ -56,20 +56,20 @@ TWINGS.panel.create = function() {
  */
 TWINGS.panel.settings = {
 	maxRadius : 330,
-	steps : 6,
-	distance : 50,
+	steps : 5,
+	distance : 35,
 	type : {
 		friend : {
-			color : '#BDC4BD',
-			radius : 10
+			color : '#85BBFF',
+			radius : 12
 		},
 		follower : {
-			color : '#DA915A',
-			radius : 5
+			color : '#E4FF6B',
+			radius : 8
 		},
 		following : {
-			color : '#F9E4AB',
-			radius : 8
+			color : '#9CB239',
+			radius : 10
 		}
 	},
 	colors : {

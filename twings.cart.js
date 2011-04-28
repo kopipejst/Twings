@@ -20,8 +20,7 @@ TWINGS.cart.init = function() {
 	div.style.top = 0;
 	div.style.lef = 0;
 
-	out += "<div id='r_name'></div>";
-	out += "<div id='screen_name'></div>";
+	out += "<div><span id='r_name'></span> (<span id='screen_name'></span>)</div>";
 	out += "<img id='avatar' width='50' height='50' style='padding: 5px 5px 0px 0px; float: left' /><span id='description'></div>";
 
 	div.innerHTML = out;
