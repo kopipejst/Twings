@@ -16,7 +16,7 @@
         
         <style>
             body { font-family: verdana; font-size: 12px }
-            #log { position: fixed; top: 0; left: 0; }
+            #log { position: fixed; top: 0; left: 0; font-size: 11px; padding: 10px; }
             #page { width: 900px; margin: 0 auto; }
             
             #settings_holder {
@@ -52,17 +52,37 @@
             	text-align: center;
             	line-height: 30px;
             	cursor: pointer;
-			}
+	    }
             
-			#show { display: none; }
+	    #show { display: none; }
 			
-            #name { font-size: 16px; }
+            #name { font-size: 16px; width: 140px; float: left; }
             #screen_name { color: #ccc; }
+	    #name_submit {
+		cursor: pointer;
+		background: #f3f3f3;
+		width: 40px;
+		float: left;
+		text-align: center;
+		font-weight: bold;
+		line-height: 28px;
+		margin-left: 5px;
+	    }
             
         </style>
         
     </head>
     <body>
+
+
+	<div style="position: fixed; bottom: 20px; left: 0px; width: 300px; padding: 10px; font-size: 11px;">
+	    <strong style="font-size: 20px; line-height: 30px;">What's this ?</strong><br />
+	    This is demo page for Twings - Visual presentation of Twitter connections.
+	    You can play with options on right side to create custom presentation of your Twitter connections.
+	    Demo works only in modern browsers and it's in early Beta phase. 
+	    More details can be found on <a href="http://workshop.rs">workshop.rs</a>.
+	</div>
+
 
         <div id="cart">
             <div id="cart_screen_name"></div>
@@ -84,13 +104,13 @@
 	            <div class="title">Distance between rings</div>
 	            <div id="slider_distance"></div>
 	            
-	            <div class="title">Order of TWINGSs in rings</div>
+	            <div class="title">Order of dots in rings</div>
 	            <div id="slider_order"></div>
 	            
 	            <div class="title">Group (friends, followers, following)</div>            
 	            <div id="slider_type"></div>
 	            
-	            <div class="title">TWINGSs radius</div>
+	            <div class="title">Dots radius</div>
 	            <div id="slider_radius"></div>
 	            
 	            <div id="color_colors"></div>
@@ -122,7 +142,7 @@
             TWINGS.panel.init();
             TWINGS.data.getData('kopipejst');
 
-			// initial type for sliders
+	    // initial type for sliders
             TWINGS.TYPE = "friend";
 
 
@@ -168,8 +188,6 @@
                 }
             });
             
-          
-
             $( "#slider_radius").slider({
                 max: 20,
                 min: 5,
@@ -209,9 +227,9 @@
             }); 
 
             $('#hide').click( function(){
-				$('#settings_holder').animate({ right: '-240px' } , 500);
-				$(this).hide();
-				$('#show').show();
+		$('#settings_holder').animate({ right: '-240px' } , 500);
+		$(this).hide();
+		$('#show').show();
             });
 
             $('#show').click( function(){
@@ -221,18 +239,30 @@
             });            
 
             $('#name_submit').click( function(){
-				var val = $('#name').val();
-				localStorage['TWINGS'] = '';
-		        TWINGS.data.storageTemp.friends = [];
-		        TWINGS.data.storageTemp.followers = [];				
-				TWINGS.data.getData(val);
+		var val = $('#name').val();
+		localStorage['TWINGS'] = '';
+		TWINGS.data.storageTemp.friends = [];
+		TWINGS.data.storageTemp.followers = [];				
+		TWINGS.data.getData(val);
             }); 
 
 
             
         </script>
+  
+<script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script> 
+<script type="text/javascript"> 
+try {
+var pageTracker = _gat._getTracker("UA-11860629-1");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>   
     
-    
-    
+        <a href="https://github.com/kopipejst/Twings"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a> 
+
+
     </body>
 </html>
