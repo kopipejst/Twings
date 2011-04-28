@@ -30,14 +30,7 @@ TWINGS.data.getData = function(screenName, cursor, ff) {
 
 	if (localStorage['TWINGS_' + screenName]) {
 		TWINGS.data.storage = JSON.parse(localStorage['TWINGS_' + screenName]);
-		var cnt = 10;
-		var e = setInterval( function(){
-			TWINGS.panel.create(cnt);
-			cnt--;
-			if (cnt < 1){
-				clearInterval(e);
-			}
-		}, 50);
+		TWINGS.data.animate();
 		return '';
 	}
 
@@ -127,15 +120,7 @@ TWINGS.data.prepareData = function() {
 	}
 
 	TWINGS.data.storage = tempData;
-
-	var cnt = 10;
-	var e = setInterval( function(){
-		TWINGS.panel.create(cnt);
-		cnt--;
-		if (cnt < 1){
-			clearInterval(e);
-		}
-	}, 50);
+	TWINGS.data.animate();
 
 	return tempData;
 
@@ -153,6 +138,20 @@ TWINGS.data.getId = function(id) {
 	return id.split("_")[1];
 
 };
+
+/**
+ * Show rings with animation
+ */
+TWINGS.data.animate = function(){
+	var cnt = 10;
+	var e = setInterval( function(){
+		TWINGS.panel.create(cnt);
+		cnt--;
+		if (cnt < 1){
+			clearInterval(e);
+		}
+	}, 50);	
+}
 
 /**
  * Get screen_name by id

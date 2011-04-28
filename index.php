@@ -75,6 +75,17 @@
 		height: 28px;
 		margin-left: 5px;
 	    }
+	    #animate {
+		background-color: #f3f3f3;
+		line-height: 30px;
+		display: block;
+		text-decoration: none;
+		color: #000;
+		text-align: center;
+		border: 2px solid #FFF;
+		margin-top: 40px;
+		font-size: 14px;
+	    }
             
         </style>
         
@@ -124,6 +135,8 @@
 	            <div id="slider_radius"></div>
 	            
 	            <div id="color_colors"></div>
+		    
+		    <a href="#" id="animate">Animate</a>
 	            
 	        </div>
 			<div id="show_hide">
@@ -257,7 +270,12 @@
 		TWINGS.data.storageTemp.friends = [];
 		TWINGS.data.storageTemp.followers = [];				
 		TWINGS.data.getData(val);
-            }); 
+            });
+	    
+	    $('#animate').click( function(e){
+		e.preventDefault();
+		TWINGS.data.animate();
+	    })
 
 
             
