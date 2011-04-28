@@ -13,7 +13,7 @@ TWINGS.data = {
 };
 
 /**
- * Get all data for user since that tweeter returns chunks of 100
+ * Get all data for user since that twitter returns chunks of 100
  * 
  * @param {string}
  *            screen_name
@@ -64,9 +64,6 @@ TWINGS.data.getData = function(screenName, cursor, ff) {
 
 };
 
-TWINGS.data.getFriendsData = function(screenName, cursor) {
-
-};
 
 /**
  * Merge all data in one array
