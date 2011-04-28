@@ -30,7 +30,14 @@ TWINGS.data.getData = function(screenName, cursor, ff) {
 
 	if (localStorage['TWINGS_' + screenName]) {
 		TWINGS.data.storage = JSON.parse(localStorage['TWINGS_' + screenName]);
-		TWINGS.panel.create();
+		var cnt = 10;
+		var e = setInterval( function(){
+			TWINGS.panel.create(cnt);
+			cnt--;
+			if (cnt < 1){
+				clearInterval(e);
+			}
+		}, 50);
 		return '';
 	}
 
@@ -121,7 +128,14 @@ TWINGS.data.prepareData = function() {
 
 	TWINGS.data.storage = tempData;
 
-	TWINGS.panel.create();
+	var cnt = 10;
+	var e = setInterval( function(){
+		TWINGS.panel.create(cnt);
+		cnt--;
+		if (cnt < 1){
+			clearInterval(e);
+		}
+	}, 50);
 
 	return tempData;
 

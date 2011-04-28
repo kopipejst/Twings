@@ -39,9 +39,13 @@ TWINGS.panel.init = function(id) {
  * @param {object}
  *            data
  */
-TWINGS.panel.create = function() {
-
+TWINGS.panel.create = function(anim) {
+	
+	anim = anim || 1;
+	
 	$(this.canvas).empty();
+
+this.settings.anim = anim;
 
 	this.layer('path');
 	this.layer('text');
@@ -91,15 +95,19 @@ TWINGS.panel.settings = {
  */
 TWINGS.panel.layer = function(layer) {
 
-	var dLen = TWINGS.data.storage.count.totals, // number of TWINGSs
-	i = 0, // object hash (key)
-	x = 0, // x coordinate
-	y = 0, // y coordinate
-	angle = 0, // translate angle
-	t = 0, // counter
-	moveR = 0, orderR = 0, datas = TWINGS.data.storage.data, // data object
-	id = 0, // id of element
-	order = this.settings.order, r = 0; // TWINGS radius
+	var 	dLen = TWINGS.data.storage.count.totals, // number of TWINGSs
+		i = 0, // object hash (key)
+		x = 0, // x coordinate
+		y = 0, // y coordinate
+		angle = 0, // translate angle
+		t = 0, // counter
+		moveR = 0,
+		orderR = 0,
+		datas = TWINGS.data.storage.data, // data object
+		id = 0, // id of element
+		order = this.settings.order,
+		anim = this.settings.anim,
+		r = 0; // TWINGS radius
 
 	for (i in datas) {
 
@@ -113,22 +121,22 @@ TWINGS.panel.layer = function(layer) {
 		angle += Math.PI * 2 * (1 / dLen);
 		radius = this.settings.maxRadius - moveR;
 
-		x = this.settings.center.x + radius * Math.sin(angle);
-		y = this.settings.center.y + radius * -Math.cos(angle);
+		x = this.settings.center.x + radius * Math.sqrt(anim) * Math.sin(angle);
+		y = this.settings.center.y + radius * Math.sqrt(anim) * -Math.cos(angle);
 
 		switch (layer) {
-		case 'circles':
-			this.addCircle(x, y, this.settings.type[datas[i].type].color, id,
-					this.settings.type[datas[i].type].radius);
-			break;
-		case 'path':
-			this.addPath(this.settings.center.x, this.settings.center.y, x, y,
-					id, this.settings.colors.paths);
-			break;
-		case 'text':
-			this.addText(x - 20, y + 12, this.settings.colors.text, id,
-					datas[i].screen_name);
-			break;
+			case 'circles':
+				this.addCircle(x, y, this.settings.type[datas[i].type].color, id,
+						this.settings.type[datas[i].type].radius);
+				break;
+			case 'path':
+				this.addPath(this.settings.center.x, this.settings.center.y, x, y,
+						id, this.settings.colors.paths);
+				break;
+			case 'text':
+				this.addText(x - 20, y + 12, this.settings.colors.text, id,
+						datas[i].screen_name);
+				break;
 		}
 
 	}

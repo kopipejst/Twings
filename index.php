@@ -81,6 +81,7 @@
     </head>
     <body>
 
+        <a href="https://github.com/kopipejst/Twings"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a> 
 
 	<div style="position: fixed; bottom: 20px; left: 0px; width: 300px; padding: 10px; font-size: 11px;">
 	    <strong style="font-size: 20px; line-height: 30px;">What's this ?</strong><br />
@@ -273,8 +274,7 @@ pageTracker._trackPageview();
 } catch(err) {}
 </script>   
     
-        <a href="https://github.com/kopipejst/Twings"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a> 
-
+ 
 
     </body>
 </html>
