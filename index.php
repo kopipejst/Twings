@@ -252,7 +252,7 @@
             $('#main_form').submit( function(e){
 		var val = $('#name').val();
 		e.preventDefault();
-		localStorage['TWINGS'] = '';
+		localStorage['TWINGS_' + val] = '';
 		TWINGS.data.storageTemp.friends = [];
 		TWINGS.data.storageTemp.followers = [];				
 		TWINGS.data.getData(val);
