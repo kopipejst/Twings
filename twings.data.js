@@ -28,14 +28,17 @@ TWINGS.data.getData = function(screenName, cursor, ff) {
 	cursor = cursor || -1;
 	this.screenName = screenName;
 
-	if (localStorage['TWINGS']) {
-		TWINGS.data.storage = JSON.parse(localStorage['TWINGS']);
+	if (localStorage['TWINGS_' + screenName]) {
+		TWINGS.data.storage = JSON.parse(localStorage['TWINGS_' + screenName]);
 		TWINGS.panel.create();
 		return '';
 	}
 
 	var tUrl = "http://api.twitter.com/1/statuses/" + ff + ".json?screen_name="
 			+ screenName + "&cursor=" + cursor;
+	
+	log(screenName);
+	window.location.hash = screenName;
 
 	$.ajax({
 		url : tUrl,
@@ -113,7 +116,7 @@ TWINGS.data.prepareData = function() {
 	tempData.count.totals = total.followers + total.friends + total.following;
 
 	if (localStorage) {
-		localStorage['TWINGS'] = JSON.stringify(tempData);
+		localStorage['TWINGS_' + this.screenName] = JSON.stringify(tempData);
 	}
 
 	TWINGS.data.storage = tempData;

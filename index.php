@@ -56,16 +56,23 @@
             
 	    #show { display: none; }
 			
-            #name { font-size: 16px; width: 140px; float: left; }
+            #name {
+		font-size: 16px;
+		width: 140px;
+		float: left;
+		border: 1px solid #f3f3f3;
+		height: 25px;
+	    }
+	    #main_form { overflow: hidden; }
             #screen_name { color: #ccc; }
 	    #name_submit {
-		cursor: pointer;
+		border: none;
 		background: #f3f3f3;
 		width: 40px;
 		float: left;
 		text-align: center;
 		font-weight: bold;
-		line-height: 28px;
+		height: 28px;
 		margin-left: 5px;
 	    }
             
@@ -92,9 +99,11 @@
 	        <div id="settings">
 	            
 	            <div class="title">Twitter screen name</div>
-	            <input type="text" id="name" name="name" />
-	            <div id="name_submit">go</div>
-	            
+		    <form id="main_form">
+			<input type="text" id="name" name="name" />
+			<input type="submit" id="name_submit" value="go" />
+		    </form>
+		    
 	            <div class="title">Maximum radius</div>
 	            <div id="slider_maxRadius"></div>
 	            
@@ -138,9 +147,11 @@
     
         <script>
  
-            
+            var username = window.location.hash.replace('#','') || 'kopipejst';
+	    $('#name').val(username);
+	    
             TWINGS.panel.init();
-            TWINGS.data.getData('kopipejst');
+            TWINGS.data.getData(username);
 
 	    // initial type for sliders
             TWINGS.TYPE = "friend";
@@ -238,8 +249,9 @@
             	$('#hide').show();
             });            
 
-            $('#name_submit').click( function(){
+            $('#main_form').submit( function(e){
 		var val = $('#name').val();
+		e.preventDefault();
 		localStorage['TWINGS'] = '';
 		TWINGS.data.storageTemp.friends = [];
 		TWINGS.data.storageTemp.followers = [];				
