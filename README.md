@@ -12,6 +12,9 @@ Screenshoots
 ------------
 ![screenshot 1](http://workshop.rs/projects/twings/twings3.png)
 ![screenshot 2](http://workshop.rs/projects/twings/twings4.png)
+![screenshot 3](http://workshop.rs/projects/twings/twings5.png)
+![screenshot 4](http://workshop.rs/projects/twings/twings6.png)
+![screenshot 5](http://workshop.rs/projects/twings/twings7.png)
 ![screenshot twings types](http://workshop.rs/projects/twings/twings_4_types.png)
 
 
