@@ -116,6 +116,7 @@ TWINGS.data.prepareData = function() {
 	tempData.count.totals = total.followers + total.friends + total.following;
 
 	if (localStorage) {
+		localStorage.clear();
 		localStorage['TWINGS_' + this.screenName] = JSON.stringify(tempData);
 	}
 
