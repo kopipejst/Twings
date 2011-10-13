@@ -60,4 +60,4 @@ TWINGS.cart.show = function(id) {
  */
 TWINGS.cart.e = function(id) {
 	return document.getElementById(id);
-}
+};

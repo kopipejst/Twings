@@ -95,7 +95,7 @@ TWINGS.panel.settings = {
  */
 TWINGS.panel.layer = function(layer) {
 
-	var 	dLen = TWINGS.data.storage.count.totals, // number of TWINGSs
+	var dLen = TWINGS.data.storage.count.totals, // number of TWINGSs
 		i = 0, // object hash (key)
 		x = 0, // x coordinate
 		y = 0, // y coordinate

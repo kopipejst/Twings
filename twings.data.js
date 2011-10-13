@@ -83,7 +83,7 @@ TWINGS.data.prepareData = function() {
 		friends : 0,
 		followers : 0,
 		following : 0
-	}
+	};
 
 	for ( var i = 0; i < data.length; i++) {
 		for ( var j = 0; j < data[i].length; j++) {
@@ -152,7 +152,7 @@ TWINGS.data.animate = function(){
 			clearInterval(e);
 		}
 	}, 50);	
-}
+};
 
 /**
  * Get screen_name by id
@@ -163,4 +163,4 @@ TWINGS.data.animate = function(){
  */
 TWINGS.data.getScreenName = function(id) {
 	return TWINGS.data.storage.data[id].screen_name;
-}
+};
